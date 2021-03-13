@@ -22,51 +22,31 @@
     <span class="navbar-brand mb-0 h1">All Posts</span>
   </div>
 </nav>
+</br>
+<div class="card container">
+  <div class="card-header">
+  Post Info
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Title :-</h5>
+    <p class="card-text">{{$post['title']}}</p>
+    <h5 class="card-title">Description :-</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{$post['desc']}}</h6>
+  </div>
+</div>
+</br>
+<div class="card container">
+  <div class="card-header">
+  Post Creator Info
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Name :-</h5>
+    <p class="card-text">{{$post['posted_by']}}</p>
+    <h5 class="card-title">Created At :-</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{$post['created_at']}}</h6>
+  </div>
+</div>
 
-<center><a class="btn btn-success">Create Post</a></center>
-
-
-<table class="table container mt-5">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">Posted by</th>
-      <th scope="col">Created at</th>
-      <th scope="col">Actions</th>
-
-    </tr>
-  </thead>
-  <tbody>
-
-    @foreach ($allPosts as $post)
-    <tr>
-      <th scope="row">{{$post['id']}}</th>
-      <td>{{$post['title']}}</td>
-      <td>{{$post['posted_by']}}</td>
-      <td>{{$post['created_at']}}</td>
-      <td> 
-        <a class="btn btn-info">view</a>
-        <a class="btn btn-primary">Edit</a>
-        <a class="btn btn-danger">Delete</a>
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-
-
-
-<!-- @foreach ($allPosts as $post)
-    {{$post['id']}}
-
-
-@endforeach -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-
-

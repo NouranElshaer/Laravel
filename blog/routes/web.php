@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', [PostController::class, 'controllerAction']);
+Route::get('posts', [PostController::class, 'index']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 
 // Route::get('/index', function () {
 //     $posts = [
@@ -26,5 +27,5 @@ Route::get('index', [PostController::class, 'controllerAction']);
 //         ['id' => 2, 'title' => 'Js', 'posted_by' => 'mohamed', 'created_at' => '2021-03-25'],
 //         ['id' => 3, 'title' => 'Java', 'posted_by' => 'mahmoud', 'created_at' => '2021-03-30']
 //     ]; 
-//     return view('index', ['allPosts' => $posts]);
+//     return view('index', ['posts' => $posts]);
 // });
