@@ -22,6 +22,18 @@ class PostController extends Controller
          $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
         return view('posts.show', ['post' => $post]);
     }
+    
+    public function create()
+    {
+        //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
+        return view('posts.create');
+    }
+
+    public function store()
+    {
+        // return "fghjk";
+        return redirect()->route('posts.index');
+    }
 
 }
 
