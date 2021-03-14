@@ -7,21 +7,27 @@
 <head>
     <title>Laravel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        .bg-light {
+            background-color: grey!important;
+        }
+    </style>
+
 </head>
 <body>
     <!-- As a link -->
 <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{route('posts.index')}}">All Posts</a>
+  <div>
+    <a class="navbar-brand" href="{{route('posts.index')}}">All Posts</a> <span class="navbar-brand mb-0 h1">ITI Blog</span>
   </div>
 </nav>
-
+</br>
 <!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
+<!-- <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">ITI Blog</span>
   </div>
-</nav>
+</nav> -->
 
 
 @yield('content')

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<center><a class="btn btn-success">Create Post</a></center>
+<center><a href="{{route('posts.create')}}" class="btn btn-success">Create Post</a></center>
 
 
 <table class="table container mt-5">
@@ -26,8 +26,13 @@
       <td>{{$post['created_at']}}</td>
       <td> 
         <a href="{{route('posts.show', [ 'post' => $post['id'] ])}}" class="btn btn-info">view</a>
-        <a class="btn btn-primary">Edit</a>
-        <a class="btn btn-danger">Delete</a>
+        <a href="{{route('posts.edit', [ 'post' => $post['id'] ])}}" class="btn btn-primary">Edit</a>
+        <!-- <a class="btn btn-danger">Delete</a> -->
+        <form action="{{ route('posts.destroy', ['post' => $post['id']]) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Delete" class="btn btn-danger"></input>
+        </form>
       </td>
     </tr>
     @endforeach

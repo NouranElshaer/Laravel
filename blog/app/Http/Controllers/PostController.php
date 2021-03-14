@@ -29,12 +29,31 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         // return "fghjk";
         return redirect()->route('posts.index');
     }
 
+    public function edit($post)
+    {
+        // dd($post);
+        $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
+        return view('posts.update', ['post' => $post]);
+    }
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        return redirect()->route('posts.index');
+    }
+    // public function edit()
+    // {
+    //     return view('posts.edit');
+    // }
+    public function destroy($id)
+    {
+        return redirect()->route('posts.index');
+    }
 }
 
 

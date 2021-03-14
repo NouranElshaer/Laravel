@@ -13,7 +13,11 @@
     <label for="desc" class="form-label">Description</label>
     <input type="text" class="form-control" id="desc">
   </div>
+  <div class="mb-3">
+    <label for="creator" class="form-label">Post Creator</label>
+    <input type="text" class="form-control" id="creator">
+  </div>
  
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button type="submit" class="btn btn-success">Create</button>
 </form>
 @endsection
