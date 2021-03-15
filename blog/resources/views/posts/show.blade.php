@@ -21,7 +21,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Name :-</h5>
-        <p class="card-text">{{$post['posted_by']}}</p>
+        <p class="card-text">{{$post['user_id']}}</p>
         <h5 class="card-title">Created At :-</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{$post['created_at']}}</h6>
     </div>

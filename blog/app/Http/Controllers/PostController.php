@@ -24,6 +24,7 @@ class PostController extends Controller
     public function show($post)
     {
         $post= Post::find($post);
+        
         // dd($post);
         //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
         // dd($post);
@@ -48,15 +49,16 @@ class PostController extends Controller
         // Post::create([
         //     'title' => $data['title'],
         //     'description' => $data['description'],
-        // ]);        
-            // dd($data);
-            $post=new Post();
-            $post->title =$data['title'];
-            $post->description =$data['description'];
-            $post->user_id =$data['user_id'];
-            $post->save();
+        // ]);       
+        
+        // use this when you are gonna type all attributes and no need for fillable in Post model
+            // $post=new Post();
+            // $post->title =$data['title'];
+            // $post->description =$data['description'];
+            // $post->user_id =$data['user_id'];
+            // $post->save();
 
-        // Post::create([$data]);//only use this with protected yourself with fillable 
+        Post::create($data);//only use this with protected yourself with fillable 
         // Post::create([$myRequestObject]);//only use this with protected yourself with fillable 
 
         
@@ -79,8 +81,11 @@ class PostController extends Controller
     // {
     //     return view('posts.edit');
     // }
-    public function destroy($id)
-    {
+    public function destroy($post)
+    {   
+        $data= Post::find($post);
+        $data->delete();
+
         return redirect()->route('posts.index');
     }
 }
