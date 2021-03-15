@@ -11,7 +11,7 @@
         <h5 class="card-title">Title :-</h5>
         <p class="card-text">{{$post['title']}}</p>
         <h5 class="card-title">Description :-</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{$post['desc']}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{$post['description']}}</h6>
     </div>
     </div>
     </br>
