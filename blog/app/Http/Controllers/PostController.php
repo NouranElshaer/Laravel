@@ -23,17 +23,18 @@ class PostController extends Controller
 
     public function show($post)
     {
+        // dd($post);
+
         $post= Post::find($post);
         
-        // dd($post);
-        //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
+        //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the description of the post', 'created_at' => '2021-03-13']; 
         // dd($post);
         return view('posts.show', ['post' => $post]);
     }
     
     public function create()
     {
-        //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
+        //  $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the description of the post', 'created_at' => '2021-03-13']; 
         
         return view('posts.create', ['users' => User::all()]);
     }
@@ -58,6 +59,7 @@ class PostController extends Controller
             // $post->user_id =$data['user_id'];
             // $post->save();
 
+            // $data['create_at'] = $data->created_at->format('Y-m-d');
         Post::create($data);//only use this with protected yourself with fillable 
         // Post::create([$myRequestObject]);//only use this with protected yourself with fillable 
 
@@ -68,13 +70,21 @@ class PostController extends Controller
 
     public function edit($post)
     {
-        // dd($post);
-        $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the discription of the post', 'created_at' => '2021-03-13']; 
-        return view('posts.update', ['post' => $post]);
+        
+        $data= Post::find($post);
+
+        // $post = ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'desc' => 'this is the description of the post', 'created_at' => '2021-03-13']; 
+        return view('posts.update', ['data' => $data]);
     }
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+        $request=$request->all();
+        // dd($request['user_id']);
+        
+            $post= Post::find($id);
+            // dd($post);
+            $post->update($request);
+            // dd($post);
         return redirect()->route('posts.index');
     }
     // public function edit()
