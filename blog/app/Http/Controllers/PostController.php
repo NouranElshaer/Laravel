@@ -49,8 +49,14 @@ class PostController extends Controller
         //     'title' => $data['title'],
         //     'description' => $data['description'],
         // ]);        
+            // dd($data);
+            $post=new Post();
+            $post->title =$data['title'];
+            $post->description =$data['description'];
+            $post->user_id =$data['user_id'];
+            $post->save();
 
-        Post::create([$data]);//only use this with protected yourself with fillable 
+        // Post::create([$data]);//only use this with protected yourself with fillable 
         // Post::create([$myRequestObject]);//only use this with protected yourself with fillable 
 
         

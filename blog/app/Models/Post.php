@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'user_id', 
+        'title', 'description', 'user_id' 
     ];
 
     // U have to define the forign key
