@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -39,10 +40,17 @@ class PostController extends Controller
         return view('posts.create', ['users' => User::all()]);
     }
 
-    public function store(Request $myRequestObject)
+    // public function store(Request $myRequestObject)
+    public function store(StorePostRequest $myRequestObject)
     {  
         $data = $myRequestObject->all();
         //  using Request class => eltara2a de esmaha type hinting
+        // validation
+        // $myRequestObject=$myRequestObject->validate([
+        //     'title'=>['required', 'min:3'],
+        //     'description'=>'required',
+        // ], ['title.required'=>'watch out title is required']);
+
 
         // $data = request()->all();
         // request()->title == $data['title'];

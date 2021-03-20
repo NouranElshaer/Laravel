@@ -20,6 +20,7 @@
       <option value="{{$user->id}}">{{$user->name}}</option>
     @endforeach
     </select>
+    
   </div>
  
   <button type="submit" class="btn btn-success">Create</button>
