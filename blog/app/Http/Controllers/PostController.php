@@ -41,39 +41,46 @@ class PostController extends Controller
     }
 
     // public function store(Request $myRequestObject)
-    public function store(StorePostRequest $myRequestObject)
-    {  
-        $data = $myRequestObject->all();
-        //  using Request class => eltara2a de esmaha type hinting
-        // validation
-        // $myRequestObject=$myRequestObject->validate([
-        //     'title'=>['required', 'min:3'],
-        //     'description'=>'required',
-        // ], ['title.required'=>'watch out title is required']);
+    // public function store(StorePostRequest $myRequestObject)
+    // {  
+    //     $data = $myRequestObject->all();
+    //     //  using Request class => eltara2a de esmaha type hinting
+    //     // validation
+    //     // $myRequestObject=$myRequestObject->validate([
+    //     //     'title'=>['required', 'min:3'],
+    //     //     'description'=>'required',
+    //     // ], ['title.required'=>'watch out title is required']);
 
 
-        // $data = request()->all();
-        // request()->title == $data['title'];
+    //     // $data = request()->all();
+    //     // request()->title == $data['title'];
         
-        // Post::create([
-        //     'title' => $data['title'],
-        //     'description' => $data['description'],
-        // ]);       
+    //     // Post::create([
+    //     //     'title' => $data['title'],
+    //     //     'description' => $data['description'],
+    //     // ]);       
         
-        // use this when you are gonna type all attributes and no need for fillable in Post model
-            // $post=new Post();
-            // $post->title =$data['title'];
-            // $post->description =$data['description'];
-            // $post->user_id =$data['user_id'];
-            // $post->save();
+    //     // use this when you are gonna type all attributes and no need for fillable in Post model
+    //         // $post=new Post();
+    //         // $post->title =$data['title'];
+    //         // $post->description =$data['description'];
+    //         // $post->user_id =$data['user_id'];
+    //         // $post->save();
 
-            // $data['create_at'] = $data->created_at->format('Y-m-d');
-        Post::create($data);//only use this with protected yourself with fillable 
-        // Post::create([$myRequestObject]);//only use this with protected yourself with fillable 
+    //         // $data['create_at'] = $data->created_at->format('Y-m-d');
+    //     Post::create($data);//only use this with protected yourself with fillable 
+    //     // Post::create([$myRequestObject]);//only use this with protected yourself with fillable 
 
         
 
-        return redirect()->route('posts.index');
+    //     return redirect()->route('posts.index');
+    // }
+    */
+    public function store(PostFormRequest $request)
+    {
+        $request->only('title', 'description');
+        Post::create($request->all());
+        return redirect()->route("posts.index");
     }
 
     public function edit($post)
