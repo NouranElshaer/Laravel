@@ -39,4 +39,4 @@ Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.d
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ller::class, 'index'])->name('home');
